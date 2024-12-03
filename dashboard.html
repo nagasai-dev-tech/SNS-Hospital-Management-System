@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .main-content {
+            flex-grow: 1;
+            margin-left: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .main-content h2 {
+            margin-top: 0;
+        }
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .appointments, .notifications {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .appointments li, .notifications li {
+            margin-bottom: 10px;
+        }
+        .appointments li span, .notifications li span {
+            font-weight: bold;
+        }
+        .logout-btn {
+            display: block;
+            background-color: #e63946;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            width: 200px;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Patient Dashboard</h3>
+            <a href="dashboard.html">Home</a>
+            <a href="appointments.html">Appointments</a>
+            <a href="medical-history.html">Medical History</a>
+            <a href="billing.html">Billing</a>
+            <a href="messages.html">Messages</a>
+        </div>
+
+        <div class="main-content">
+            <h2>Welcome, John Doe</h2>
+
+            <div class="card">
+                <h3>Upcoming Appointments</h3>
+                <ul class="appointments">
+                    <li><span>Dr. Smith - Cardiology:</span> 2024-12-01 10:00 AM</li>
+                    <li><span>Dr. Lee - General Checkup:</span> 2024-12-05 3:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Recent Notifications</h3>
+                <ul class="notifications">
+                    <li><span>Message from Dr. Smith:</span> Please prepare for a blood test at your next appointment.</li>
+                    <li><span>Payment Reminder:</span> Your next bill is due on 2024-12-10.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Your Medical History</h3>
+                <p><strong>Condition:</strong> Hypertension</p>
+                <p><strong>Previous Treatments:</strong> Blood Pressure Medications, Lifestyle Adjustments</p>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulating logout functionality
+        function logout() {
+            alert('You have been logged out.');
+            window.location.href = 'login.html'; // Redirect to the login page
+        }
+    </script>
+</body>
+</html>

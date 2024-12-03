@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .appointment-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin-top: 20px;
+        }
+        .appointment-form h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="appointment-form">
+            <h2>Book Appointment</h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="doctor">Select Doctor</label>
+                    <select id="doctor" required>
+                        <option value="">Select a Doctor</option>
+                        <option value="Dr. Smith - Cardiology">Dr. Smith - Cardiology</option>
+                        <option value="Dr. Lee - General Medicine">Dr. Lee - General Medicine</option>
+                        <option value="Dr. Johnson - Orthopedics">Dr. Johnson - Orthopedics</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Select Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Select Time</label>
+                    <input type="time" id="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Visit</label>
+                    <textarea id="reason" placeholder="Describe your reason for the visit" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Book Appointment</button>
+                </div>
+                <div class="success-message" id="successMessage">Your appointment has been booked successfully! You will receive a confirmation soon.</div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page refresh
+
+            const doctor = document.getElementById('doctor').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const time = document.getElementById('time').value.trim();
+            const reason = document.getElementById('reason').value.trim();
+
+            if (doctor && date && time && reason) {
+                // Simulate successful booking
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Optionally, send data to a server here via an API (AJAX, Fetch, etc.)
+                console.log("Doctor:", doctor);
+                console.log("Date:", date);
+                console.log("Time:", time);
+                console.log("Reason for Visit:", reason);
+
+                // Reset form after 3 seconds
+                setTimeout(function() {
+                    document.getElementById('appointmentForm').reset();
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            } else {
+                alert("Please fill in all the fields!");
+            }
+        });
+    </script>
+</body>
+</html>
